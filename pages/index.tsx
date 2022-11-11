@@ -1,9 +1,12 @@
 import styles from "../styles/Top.module.scss";
 import AuthHeader from "../components/auth/AuthHeader";
+import { auth } from "../lib/firebase";
 
+import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
 
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 
 if (typeof document !== "undefined") {
@@ -25,6 +28,7 @@ if (typeof document !== "undefined") {
 }
 
 export default function Home() {
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false);
 
   const changeIsLoading = (state: boolean) => {
@@ -42,8 +46,13 @@ export default function Home() {
 
   }
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = async () => {
     changeIsLoading(true)
+    const provider = new GoogleAuthProvider();
+    await signInWithRedirect(auth, provider)
+    console.log('aaa')
+    router.push('/main')
+    changeIsLoading(false)
   }
 
   return (

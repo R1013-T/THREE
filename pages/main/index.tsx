@@ -1,7 +1,7 @@
 const index = () => {
   return (
     <div>
-      Enter
+      #main
     </div>
   );
 }
