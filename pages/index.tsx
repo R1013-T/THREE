@@ -6,11 +6,29 @@ import Head from "next/head";
 
 import { FcGoogle } from "react-icons/fc";
 
+if (typeof document !== "undefined") {
+  const touchHandler = (event: any) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  };
+  document.addEventListener("touchstart", touchHandler, {
+    passive: false,
+  });
+  document.addEventListener(
+    "touchmove",
+    (event: any) => {
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+}
+
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <Head>
         <title>THREE</title>
         <meta name="description" content="" />
