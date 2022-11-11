@@ -27,6 +27,25 @@ if (typeof document !== "undefined") {
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
+  const changeIsLoading = (state: boolean) => {
+    setIsLoading(state)
+  }
+
+
+
+
+  const handleSignup = () => {
+
+  }
+
+  const handleLogin = () => {
+
+  }
+
+  const handleGoogleLogin = () => {
+    changeIsLoading(true)
+  }
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -38,10 +57,10 @@ export default function Home() {
       <AuthHeader isLoading={isLoading} />
       <main className={styles.main}>
         <div className={styles.inner}>
-          <button className={styles.singup}>Sing up</button>
-          <button className={styles.login}>Log in</button>
+          <button className={styles.singup} onClick={handleSignup} >Sing up</button>
+          <button className={styles.login} onClick={handleLogin} >Log in</button>
           <div className={styles.or}>or</div>
-          <button className={styles.googleLogin}>
+          <button className={styles.googleLogin} onClick={handleGoogleLogin} >
             <div className={styles.googleInner}>
               <div>
                 <FcGoogle />
