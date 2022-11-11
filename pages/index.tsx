@@ -7,7 +7,7 @@ import Head from "next/head";
 import { FcGoogle } from "react-icons/fc";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className={styles.container}>
