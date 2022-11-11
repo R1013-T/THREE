@@ -1,4 +1,4 @@
-import styles from "../styles/top.module.scss";
+import styles from "../styles/Top.module.scss";
 import AuthHeader from "../components/auth/AuthHeader";
 
 import { useState } from "react";
