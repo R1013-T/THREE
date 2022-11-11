@@ -43,7 +43,6 @@ export default function Home() {
   };
 
   const handleGoogleLogin = async () => {
-    console.log("bbb");
     changeIsLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider)
