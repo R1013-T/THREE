@@ -3,7 +3,7 @@ import AuthHeader from "../components/auth/AuthHeader";
 import { auth } from "../lib/firebase";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
@@ -39,7 +39,7 @@ export default function Home() {
 
 
   const handleSignup = () => {
-
+    router.push("main")
   }
 
   const handleLogin = () => {
@@ -51,18 +51,12 @@ export default function Home() {
     const provider = new GoogleAuthProvider();
     await signInWithRedirect(auth, provider)
     console.log('aaa')
-    router.push('/main')
+    router.push('main')
     changeIsLoading(false)
   }
 
   return (
     <div className={styles.wrapper}>
-      <Head>
-        <title>THREE</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <AuthHeader isLoading={isLoading} />
       <main className={styles.main}>
         <div className={styles.inner}>

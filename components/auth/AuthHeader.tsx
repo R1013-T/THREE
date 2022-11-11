@@ -11,9 +11,6 @@ interface Props {
 const AuthHeader = (props: Props) => {
   return (
     <div className={styles.header}>
-      <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/jtf0vez.css" />
-      </Head>
       <div className={styles.top}>
         <div>
           <RiMenu4Fill />
