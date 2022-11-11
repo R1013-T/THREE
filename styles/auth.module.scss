@@ -1,0 +1,64 @@
+$mainBack: #23282f;
+$subBack: #141920;
+$mainChara: #e6e6e6;
+$subLv1Chara: #c0c0c0;
+$subLv2Chara: #898989;
+$mainStroke: #777;
+$subStroke: #555;
+$blue: #719ddc;
+$red: #ff9796;
+
+.header {
+  width: 100%;
+  height: 40vh;
+  color: $subLv2Chara;
+
+  .top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    div {
+      width: 10vw;
+      padding: 0 3vw;
+      font-size: 27px;
+    }
+
+    p {
+      font-family: p22-arts-and-crafts, sans-serif;
+      font-weight: 300;
+      font-size: 30px;
+    }
+  }
+
+  .center {
+    margin-top: 7vh;
+    text-align: center;
+    .centerImg {
+      width: 40vw;
+      max-width: 200px;
+
+      &.loading {
+        animation: rotateInfinite ease-in-out 1.5s infinite;
+      }
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  height: 55vh;
+  margin-top: 5vh;
+  background: rgba($color: #fff, $alpha: 0.1);
+}
+
+
+@keyframes rotateInfinite {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
