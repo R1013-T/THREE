@@ -3,17 +3,21 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
 import { auth } from "../lib/firebase";
+import { onAuthStateChanged } from "@firebase/auth";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
 
   useEffect(() => {
-    const currentUser = auth.currentUser
-    if (currentUser) {
-      console.log(currentUser)
-    } else {
-      console.log('no')
-    }
-  })
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.push("/main");
+      } else {
+        router.push("/")
+      }
+    });
+  }, []);
 
   return (
     <>
