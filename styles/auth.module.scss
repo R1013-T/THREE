@@ -146,6 +146,13 @@ $red: #ff9796;
             font-weight: 700;
             text-align: center;
             font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+
+            div{
+              width: 20%;
+              text-align: right;
+            }
           }
         }
       }

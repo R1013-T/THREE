@@ -15,15 +15,17 @@ const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [authState, setAuthState] = useState(router.query.name);
 
-  useEffect(() => {}, []);
+  const changeAuthState = (state: string) => {
+    setAuthState(state)
+  }
 
   return (
     <div className={styles.wrapper}>
       <AuthHeader isLoading={isLoading} />
 
-      {authState === "signupBeforeInput" ? <SignupBeforeInput /> : ""}
-      {authState === "signupBeforeConfirm" ? <SignupBeforeConfirm /> : ""}
-      {authState === "signupBeforeComplete" ? <SignupBeforeComplete /> : ""}
+      {authState === "signupBeforeInput" ? <SignupBeforeInput changeAuthState={changeAuthState} /> : ""}
+      {authState === "signupBeforeConfirm" ? <SignupBeforeConfirm changeAuthState={changeAuthState} /> : ""}
+      {authState === "signupBeforeComplete" ? <SignupBeforeComplete changeAuthState={changeAuthState} /> : ""}
 
       {authState === "signupAfterInput" ? <SignupAfterInput /> : ""}
       {authState === "signupAfterConfirm" ? <SignupAfterConfirm /> : ""}

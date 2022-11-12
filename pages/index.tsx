@@ -42,11 +42,11 @@ export default function Home() {
   };
 
   const handleSignup = () => {
-    router.push({ pathname: "auth", query: signupQuery }, "auth")
+    router.push({ pathname: "Auth", query: signupQuery }, "Auth")
   };
 
   const handleLogin = () => {
-    router.push({ pathname: "auth", query: loginQuery }, "auth")
+    router.push({ pathname: "Auth", query: loginQuery }, "Auth")
   };
 
   const handleGoogleLogin = async () => {
