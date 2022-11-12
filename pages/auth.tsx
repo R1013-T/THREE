@@ -9,6 +9,7 @@ import LoginInput from "../components/auth/login/Input";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 const Auth = () => {
   const router = useRouter();
@@ -25,6 +26,12 @@ const Auth = () => {
 
   return (
     <div className={styles.wrapper}>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
+        />
+      </Head>
       <AuthHeader isLoading={isLoading} />
       <div className={styles.formWrap}>
         {authState === "signupBeforeInput" ? (
