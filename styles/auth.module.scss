@@ -8,7 +8,6 @@ $subStroke: #555;
 $blue: #719ddc;
 $red: #ff9796;
 
-
 .menu {
   position: fixed;
   z-index: 10;
@@ -18,11 +17,11 @@ $red: #ff9796;
   height: 100vh;
   height: 100dvh;
   background: rgba($color: #000000, $alpha: 0.5);
-  animation: showRight 0.3s ease-in;
+  opacity: 0;
+  animation: showRight 0.3s ease-in forwards;
 
   &.hide {
-    animation: hideRight 0.3s ease-in;
-
+    animation: hideRight 0.3s ease-in forwards;
   }
   .menuInner {
     opacity: 0;
@@ -36,7 +35,6 @@ $red: #ff9796;
       margin: 15px;
     }
   }
-
 }
 
 .header {
@@ -243,18 +241,22 @@ $red: #ff9796;
 
 @keyframes showRight {
   0% {
-transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-100%);
   }
   100% {
-transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 @keyframes hideRight {
   0% {
-transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
   100% {
-transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-100%);
   }
 }
 
