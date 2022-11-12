@@ -64,7 +64,8 @@ $red: #ff9796;
     margin-top: 10dvh;
     border-radius: 10px 10px 0 0;
     font-family: muli, sans-serif;
-    animation: showUp 0.4s ease-out;
+    opacity: 0;
+    animation: showUp 0.4s ease-out forwards;
   }
 
   .container {
@@ -194,6 +195,7 @@ $red: #ff9796;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
