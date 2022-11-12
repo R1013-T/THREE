@@ -1,9 +1,9 @@
 import styles from "../../../../styles/auth.module.scss";
 
 import { useRouter } from "next/router";
-import { IoChevronBackSharp } from "react-icons/io5";
 import { useState } from "react";
 
+import { IoChevronBackSharp } from "react-icons/io5";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 interface Props {
