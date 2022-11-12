@@ -10,7 +10,7 @@ import LoginInput from "../components/auth/login/Input";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const auth = () => {
+const Auth = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [authState, setAuthState] = useState(router.query.name);
@@ -33,4 +33,4 @@ const auth = () => {
   );
 };
 
-export default auth;
+export default Auth;
