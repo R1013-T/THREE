@@ -1,7 +1,7 @@
 const Confirm = () => {
   return (
     <div>
-      Enter
+      signup before confirm
     </div>
   );
 }

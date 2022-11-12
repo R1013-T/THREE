@@ -1,7 +1,7 @@
 const Complete = () => {
   return (
     <div>
-      Enter
+      signup before complete
     </div>
   );
 }

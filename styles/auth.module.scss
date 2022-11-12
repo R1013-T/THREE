@@ -10,7 +10,8 @@ $red: #ff9796;
 
 .header {
   width: 100%;
-  height: 40vh;
+  height: 45vh;
+  height: 45dvh;
   color: $subLv2Chara;
 
   .top {
@@ -46,11 +47,126 @@ $red: #ff9796;
   }
 }
 
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+
+  .container {
+    background: $subBack;
+    width: 100%;
+    height: 45vh;
+    height: 45dvh;
+    margin-top: 10vh;
+    margin-top: 10dvh;
+    border-radius: 10px 10px 0 0;
+    font-family: muli, sans-serif;
+    animation: showUp 0.4s ease-out;
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      height: 10vh;
+      height: 10dvh;
+
+      .backButton {
+        display: flex;
+        color: $subLv2Chara;
+        font-size: 15px;
+        font-weight: 300;
+        padding: 10px 0 0 10px;
+
+        .backImage {
+          margin: 2.5px 3px 0 0;
+          font-size: 13px;
+        }
+      }
+
+      h1 {
+        margin: 10px 30px 0;
+        color: $subLv1Chara;
+        font-size: 20px;
+        font-weight: 200;
+        text-align: center;
+      }
+      div {
+        width: 20vw;
+      }
+    }
+
+    .main {
+      width: 100%;
+      height: 30vh;
+      height: 30dvh;
+      margin-top: 5vh;
+      margin-top: 5dvh;
+      position: relative;
+
+      .inner {
+        position: absolute;
+        bottom: 35px;
+        right: 0;
+        left: 0;
+
+        form {
+          width: 85%;
+          margin: 0 auto;
+          label {
+            width: 100%;
+            font-size: 13px;
+            margin: 0 0 6px 3px;
+            color: $subLv1Chara;
+            font-weight: 200;
+          }
+          
+          input {
+            width: 100%;
+            height: 45px;
+            margin: 6px 0 0;
+            padding: 7px 10px;
+            border: 1px solid $mainStroke;
+            border-radius: 3px;
+            font-size: 15.5px;
+          }
+          
+          .attention {
+            margin: 10px 0 0 1px;
+            height: 10px;
+            font-size: 11px;
+            color: $red;
+          }
+
+          button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px 0;
+            border-radius: 3px;
+            background: $subLv1Chara;
+            color: $mainBack;
+            font-weight: 700;
+            text-align: center;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes rotateInfinite {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes showUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

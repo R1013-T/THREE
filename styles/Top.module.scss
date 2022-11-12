@@ -25,7 +25,7 @@ $red: #ff9796;
   .inner {
     position: absolute;
     bottom: 8vh;
-    bottom: 8dvh;
+    bottom: 10dvh;
     width: 100%;
     max-height: 100%;
     text-align: center;
@@ -38,9 +38,9 @@ $red: #ff9796;
       width: 80%;
       margin: 0 auto;
       padding: 13px;
+      border-radius: 3px;
       font-size: 14px;
       margin-top: 15px;
-      border-radius: 3px;
       color: #fff;
 
       &.singup {

@@ -30,16 +30,23 @@ export default function Home() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
+  const signupQuery = {
+    name: "signupBeforeInput"
+  }
+  const loginQuery = {
+    name: "loginInput"
+  }
+
   const changeIsLoading = (state: boolean) => {
     setIsLoading(state);
   };
 
   const handleSignup = () => {
-    router.push("main");
+    router.push({ pathname: "auth", query: signupQuery }, "auth")
   };
 
   const handleLogin = () => {
-    console.log(auth.currentUser);
+    router.push({ pathname: "auth", query: loginQuery }, "auth")
   };
 
   const handleGoogleLogin = async () => {
