@@ -51,8 +51,11 @@ $red: #ff9796;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  position: relative;
 
   .container {
+    position: absolute;
+    bottom: 0;
     background: $subBack;
     width: 100%;
     height: 45vh;
@@ -118,7 +121,7 @@ $red: #ff9796;
             color: $subLv1Chara;
             font-weight: 200;
           }
-          
+
           input {
             width: 100%;
             height: 45px;
@@ -128,7 +131,7 @@ $red: #ff9796;
             border-radius: 3px;
             font-size: 15.5px;
           }
-          
+
           .attention {
             margin: 10px 0 0 1px;
             height: 10px;
@@ -149,7 +152,7 @@ $red: #ff9796;
             display: flex;
             justify-content: space-between;
 
-            div{
+            div {
               width: 20%;
               text-align: right;
             }
