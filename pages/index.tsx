@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import AuthMenu from "../components/auth/AuthMenu";
 
 if (typeof document !== "undefined") {
   const touchHandler = (event: any) => {
@@ -29,35 +30,41 @@ if (typeof document !== "undefined") {
 export default function Home() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [menuHidden, setMenuHidden] = useState(true);
 
   const signupQuery = {
-    name: "signupBeforeInput"
-  }
+    name: "signupBeforeInput",
+  };
   const loginQuery = {
-    name: "loginInput"
-  }
+    name: "loginInput",
+  };
 
   const changeIsLoading = (state: boolean) => {
     setIsLoading(state);
   };
 
   const handleSignup = () => {
-    router.push({ pathname: "auth", query: signupQuery }, "auth")
+    router.push({ pathname: "auth", query: signupQuery }, "auth");
   };
 
   const handleLogin = () => {
-    router.push({ pathname: "auth", query: loginQuery }, "auth")
+    router.push({ pathname: "auth", query: loginQuery }, "auth");
+  };
+
+  const changeMenuHidden = (state: boolean) => {
+    setMenuHidden(state);
   };
 
   const handleGoogleLogin = async () => {
     changeIsLoading(true);
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider)
+    signInWithRedirect(auth, provider);
   };
 
   return (
     <div className={styles.wrapper}>
-      <AuthHeader isLoading={isLoading} />
+      {menuHidden ? "" : <AuthMenu changeMenuHidden={changeMenuHidden} />}
+      <AuthHeader isLoading={isLoading} changeMenuHidden={changeMenuHidden} />
       <main className={styles.main}>
         <div className={styles.inner}>
           <button className={styles.singup} onClick={handleSignup}>

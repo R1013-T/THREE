@@ -5,14 +5,20 @@ import Head from "next/head";
 import { RiMenu4Fill } from "react-icons/ri";
 
 interface Props {
-  isLoading: boolean
+  isLoading: boolean;
+  changeMenuHidden: Function
 }
 
 const AuthHeader = (props: Props) => {
+
+  const handelMenu = () => {
+    props.changeMenuHidden(false)
+  }
+
   return (
     <div className={styles.header}>
       <div className={styles.top}>
-        <div>
+        <div onClick={handelMenu}>
           <RiMenu4Fill />
         </div>
         <p>THREE</p>

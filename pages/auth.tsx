@@ -10,12 +10,14 @@ import LoginInput from "../components/auth/login/Input";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import AuthMenu from "../components/auth/AuthMenu";
 
 const Auth = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [menuHidden, setMenuHidden] = useState(true);
   const [authState, setAuthState] = useState(router.query.name);
-  const [headTitle, setHeadTitle] = useState("")
+  const [headTitle, setHeadTitle] = useState("");
   const [email, setEmail] = useState("");
 
   const changeAuthState = (state: string) => {
@@ -25,14 +27,18 @@ const Auth = () => {
     setEmail(email);
   };
 
+  const changeMenuHidden = (state: boolean) => {
+    setMenuHidden(state);
+  };
+
   useEffect(() => {
-    if (!authState) return
-    if (authState[0] === 's') {
-      setHeadTitle("Sign Up")
+    if (!authState) return;
+    if (authState[0] === "s") {
+      setHeadTitle("Sign Up");
     } else {
-      setHeadTitle("Log in")
+      setHeadTitle("Log in");
     }
-  },[authState])
+  }, [authState]);
 
   return (
     <div className={styles.wrapper}>
@@ -43,7 +49,8 @@ const Auth = () => {
         />
         <title>THREE - {headTitle}</title>
       </Head>
-      <AuthHeader isLoading={isLoading} />
+      {menuHidden ? "" : <AuthMenu changeMenuHidden={changeMenuHidden} />}
+      <AuthHeader isLoading={isLoading} changeMenuHidden={changeMenuHidden} />
       <div className={styles.formWrap}>
         {authState === "signupBeforeInput" ? (
           <SignupBeforeInput

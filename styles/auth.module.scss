@@ -8,6 +8,37 @@ $subStroke: #555;
 $blue: #719ddc;
 $red: #ff9796;
 
+
+.menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba($color: #000000, $alpha: 0.5);
+  animation: showRight 0.3s ease-in;
+
+  &.hide {
+    animation: hideRight 0.3s ease-in;
+
+  }
+  .menuInner {
+    opacity: 0;
+    animation: up 0.2s ease-in 0.4s forwards;
+
+    .hideButton {
+      font-size: 35px;
+      transform: rotate(45deg);
+      position: absolute;
+      right: 0;
+      margin: 15px;
+    }
+  }
+
+}
+
 .header {
   width: 100%;
   height: 45vh;
@@ -207,6 +238,23 @@ $red: #ff9796;
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes showRight {
+  0% {
+transform: translateX(-100%);
+  }
+  100% {
+transform: translateX(0);
+  }
+}
+@keyframes hideRight {
+  0% {
+transform: translateX(0);
+  }
+  100% {
+transform: translateX(-100%);
   }
 }
 
