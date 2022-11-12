@@ -15,6 +15,7 @@ const Auth = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [authState, setAuthState] = useState(router.query.name);
+  const [headTitle, setHeadTitle] = useState("")
   const [email, setEmail] = useState("");
 
   const changeAuthState = (state: string) => {
@@ -24,6 +25,15 @@ const Auth = () => {
     setEmail(email);
   };
 
+  useEffect(() => {
+    if (!authState) return
+    if (authState[0] === 's') {
+      setHeadTitle("Sign Up")
+    } else {
+      setHeadTitle("Log in")
+    }
+  },[authState])
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -31,6 +41,7 @@ const Auth = () => {
           name="viewport"
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
         />
+        <title>THREE - {headTitle}</title>
       </Head>
       <AuthHeader isLoading={isLoading} />
       <div className={styles.formWrap}>
