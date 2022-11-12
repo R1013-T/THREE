@@ -4,19 +4,20 @@ import { useRouter } from "next/router";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { useState } from "react";
 
-import { BsCheck2Circle, BsXCircle } from "react-icons/bs";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 interface Props {
   changeAuthState: Function;
+  changeEmail: Function;
 }
 
 const Input = (props: Props) => {
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [attentionFlag, setAttentionFlag] = useState(false);
+  const [attentionFlag, setAttentionFlag] = useState(true);
   const [attentionDesc, setAttentionDesc] =
     useState("メールアドレスを入力してください。");
-
+  const [ngMoveFlag, setNgMoveFlag] = useState(false);
   const handleBack = () => {
     router.push("/");
   };
@@ -27,12 +28,37 @@ const Input = (props: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value);
-    setAttentionFlag(false);
-    setAttentionDesc("");
+    if (!e.currentTarget.value) {
+      setAttentionFlag(true);
+      setAttentionDesc("メールアドレスを入力してください。");
+    } else if (!checkEmailValidation(e.currentTarget.value)) {
+      setAttentionFlag(true);
+      setAttentionDesc("メールアドレスではありません。");
+    } else {
+      setAttentionFlag(false);
+      setAttentionDesc("");
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (attentionFlag) {
+      setNgMoveFlag(true);
+      setTimeout(function () {
+        setNgMoveFlag(false);
+      }, 350);
+    } else {
+      props.changeEmail(email)
+      props.changeAuthState('signupBeforeConfirm')
+    }
+  };
+
+  const checkEmailValidation = (email: string) => {
+    const regex =
+      /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
+    if (regex.test(email)) {
+      return true;
+    }
   };
 
   return (
@@ -56,10 +82,15 @@ const Input = (props: Props) => {
               onChange={handleChange}
             />
             <p className={styles.attention}>{attentionDesc}</p>
-            <button type="submit">
-              <div>{attentionFlag ? <BsXCircle /> : <BsCheck2Circle />}</div>
-              Continue
-              <div></div>
+            <button type="submit" className={ngMoveFlag ? styles.ng : ""}>
+              <div>
+                {attentionFlag ? (
+                  <AiOutlineCloseCircle color="#ea4141" />
+                ) : (
+                  <AiOutlineCheckCircle color="#60c538" />
+                )}
+              </div>
+              <p>Continue</p>
             </button>
           </form>
         </div>
