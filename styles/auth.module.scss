@@ -305,7 +305,7 @@ $red: #ff9796;
 
 @keyframes menuButtonUp {
   0% {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(100%) rotate(45deg);
   }
   100% {
@@ -315,7 +315,7 @@ $red: #ff9796;
 }
 @keyframes menuListUp {
   0% {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(100%);
   }
   100% {
