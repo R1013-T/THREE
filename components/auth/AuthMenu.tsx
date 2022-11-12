@@ -14,13 +14,13 @@ const AuthMenu = (props: Props) => {
     setHideMoveFlag(true);
     setTimeout(function () {
       props.changeMenuHidden(true);
-    }, 300);
+    }, 200);
   };
 
   return (
     <div className={`${styles.menu} ${hideMoveFlag ? styles.hide : ""}`}>
-      <div className={styles.menuInner}>
-      <AiOutlinePlus className={styles.hideButton} onClick={handleHide} />
+      <div className={`${styles.menuInner} ${hideMoveFlag ? styles.hide : ""}`}>
+        <AiOutlinePlus className={styles.hideButton} onClick={handleHide} />
       </div>
     </div>
   );

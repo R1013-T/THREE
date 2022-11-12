@@ -21,11 +21,15 @@ $red: #ff9796;
   animation: showRight 0.3s ease-in forwards;
 
   &.hide {
-    animation: hideRight 0.3s ease-in forwards;
+    animation: hideRight 0.2s ease-in forwards;
   }
   .menuInner {
     opacity: 0;
     animation: up 0.2s ease-in 0.4s forwards;
+
+    &.hide {
+      animation: down 0.2s ease-in forwards;
+    }
 
     .hideButton {
       font-size: 35px;
@@ -268,6 +272,16 @@ $red: #ff9796;
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(3%);
   }
 }
 
