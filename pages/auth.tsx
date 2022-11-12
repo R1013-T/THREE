@@ -26,27 +26,34 @@ const Auth = () => {
   return (
     <div className={styles.wrapper}>
       <AuthHeader isLoading={isLoading} />
+      <div className={styles.formWrap}>
+        {authState === "signupBeforeInput" ? (
+          <SignupBeforeInput
+            changeAuthState={changeAuthState}
+            changeEmail={changeEmail}
+          />
+        ) : (
+          ""
+        )}
+        {authState === "signupBeforeConfirm" ? (
+          <SignupBeforeConfirm
+            changeAuthState={changeAuthState}
+            email={email}
+          />
+        ) : (
+          ""
+        )}
+        {authState === "signupBeforeComplete" ? (
+          <SignupBeforeComplete changeAuthState={changeAuthState} />
+        ) : (
+          ""
+        )}
 
-      {authState === "signupBeforeInput" ? (
-        <SignupBeforeInput changeAuthState={changeAuthState} changeEmail={changeEmail}/>
-      ) : (
-        ""
-      )}
-      {authState === "signupBeforeConfirm" ? (
-        <SignupBeforeConfirm changeAuthState={changeAuthState} email={email}/>
-      ) : (
-        ""
-      )}
-      {authState === "signupBeforeComplete" ? (
-        <SignupBeforeComplete changeAuthState={changeAuthState} />
-      ) : (
-        ""
-      )}
+        {authState === "signupAfterInput" ? <SignupAfterInput /> : ""}
+        {authState === "signupAfterConfirm" ? <SignupAfterConfirm /> : ""}
 
-      {authState === "signupAfterInput" ? <SignupAfterInput /> : ""}
-      {authState === "signupAfterConfirm" ? <SignupAfterConfirm /> : ""}
-
-      {authState === "loginInput" ? <LoginInput /> : ""}
+        {authState === "loginInput" ? <LoginInput /> : ""}
+      </div>
     </div>
   );
 };
