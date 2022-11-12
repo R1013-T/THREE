@@ -19,8 +19,24 @@ const AuthMenu = (props: Props) => {
 
   return (
     <div className={`${styles.menu} ${hideMoveFlag ? styles.hide : ""}`}>
-      <div className={`${styles.menuInner} ${hideMoveFlag ? styles.hide : ""}`}>
+      <div className={styles.hideButtonWrap}>
         <AiOutlinePlus className={styles.hideButton} onClick={handleHide} />
+      </div>
+      <div className={styles.menuInner}>
+        <div className={styles.listWrapper}>
+          <div className={styles.menuWrap1}>
+            <button className={styles.menu1}>Menu1</button>
+          </div>
+          <div className={styles.menuWrap1}>
+            <button className={styles.menu1}>Menu2</button>
+          </div>
+          <div className={styles.menuWrap1}>
+            <button className={styles.menu1}>Menu3</button>
+          </div>
+          <div className={styles.menuWrap1}>
+            <button className={styles.menu1}>Menu4</button>
+          </div>
+        </div>
       </div>
     </div>
   );
