@@ -26,6 +26,9 @@ const Auth = () => {
   const changeEmail = (email: string) => {
     setEmail(email);
   };
+  const changeIsLoading = (state: boolean) => {
+    setIsLoading(state)
+  }
 
   const changeMenuHidden = (state: boolean) => {
     setMenuHidden(state);
@@ -64,6 +67,7 @@ const Auth = () => {
           <SignupBeforeConfirm
             changeAuthState={changeAuthState}
             email={email}
+            changeIsLoading={changeIsLoading}
           />
         ) : (
           ""

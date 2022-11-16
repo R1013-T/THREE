@@ -10,11 +10,13 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
+    if (router.asPath === "/auth/[auth_id]") return;
+
     onAuthStateChanged(auth, (user) => {
       if (user) {
         router.push("/main");
       } else {
-        router.push("/")
+        router.push("/");
       }
     });
   }, []);
