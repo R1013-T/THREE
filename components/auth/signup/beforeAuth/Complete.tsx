@@ -10,8 +10,6 @@ interface Props {
 }
 
 const Complete = (props: Props) => {
-  const handleBack = () => {};
-
   return (
     <div className={styles.container}>
       <div className={styles.head}>
