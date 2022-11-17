@@ -1,7 +1,9 @@
+import styles from "../../styles/auth.module.scss"
+
 const LoadingWrap = () => {
   return (
-    <div>
-      Enter
+    <div className={styles.loadingWrap}>
+      
     </div>
   );
 }

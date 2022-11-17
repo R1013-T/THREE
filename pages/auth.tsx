@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import AuthMenu from "../components/auth/AuthMenu";
+import LoadingWrap from "../components/auth/LoadingWrap";
 
 const Auth = () => {
   const router = useRouter();
@@ -27,8 +28,8 @@ const Auth = () => {
     setEmail(email);
   };
   const changeIsLoading = (state: boolean) => {
-    setIsLoading(state)
-  }
+    setIsLoading(state);
+  };
 
   const changeMenuHidden = (state: boolean) => {
     setMenuHidden(state);
@@ -73,7 +74,11 @@ const Auth = () => {
           ""
         )}
         {authState === "signupBeforeComplete" ? (
-          <SignupBeforeComplete changeAuthState={changeAuthState} />
+          <SignupBeforeComplete
+            changeAuthState={changeAuthState}
+            email={email}
+            changeIsLoading={changeIsLoading}
+          />
         ) : (
           ""
         )}
@@ -82,6 +87,8 @@ const Auth = () => {
         {authState === "signupAfterConfirm" ? <SignupAfterConfirm /> : ""}
 
         {authState === "loginInput" ? <LoginInput /> : ""}
+
+        {isLoading ? <LoadingWrap /> : ""}
       </div>
     </div>
   );

@@ -225,6 +225,10 @@ $red: #ff9796;
               animation: ngMove 0.35s ease-out;
             }
 
+            &.sent {
+              background: #474B50;
+            }
+
             p {
               line-height: 1.5;
             }
@@ -240,6 +244,13 @@ $red: #ff9796;
       }
     }
   }
+}
+
+.loadingWrap {
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.5);
+  animation: showUp 0.2s ease-in;
 }
 
 @keyframes rotateInfinite {

@@ -33,6 +33,7 @@ const Confirm = (props: Props) => {
       const userId = await inputAuthFirestore();
       if (userId) {
         await sendAuthMail(userId);
+        props.changeAuthState("signupBeforeComplete")
       }
     }
 
