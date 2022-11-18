@@ -81,6 +81,7 @@ $red: #ff9796;
       font-family: p22-arts-and-crafts, sans-serif;
       font-weight: 200;
       font-size: 32px;
+      letter-spacing: 5px;
     }
   }
 
@@ -150,6 +151,7 @@ $red: #ff9796;
         font-size: 20px;
         font-weight: 200;
         text-align: center;
+        letter-spacing: 2px;
       }
       div {
         width: 20vw;
@@ -163,8 +165,7 @@ $red: #ff9796;
       margin-top: 5vh;
       margin-top: 5dvh;
       position: relative;
-      
-      
+
       &.nextInput {
         animation: nextInput 0.4s ease-out;
       }
@@ -190,6 +191,14 @@ $red: #ff9796;
             margin: 0 0 6px 3px;
             color: $subLv1Chara;
             font-weight: 200;
+
+            &.confirmLabel {
+              border: none;
+              padding: 0;
+              margin: 0;
+              display: block;
+              font-size: 12px;
+            }
           }
 
           input {
@@ -200,6 +209,14 @@ $red: #ff9796;
             border: 1px solid $mainStroke;
             border-radius: 3px;
             font-size: 15.5px;
+
+            &.confirmInput {
+              border: none;
+              margin: 0 0 -5px;
+              padding: 0 10px 15px;
+              letter-spacing: 1.2px;
+              font-size: 14px;
+            }
           }
 
           .centerLabel {
@@ -223,6 +240,23 @@ $red: #ff9796;
             }
           }
 
+          .passwordWrap {
+            display: flex;
+            line-height: 1.6;
+            margin: 0 0 -15px;
+            .confirmPasswordInput {
+              border: none;
+              padding: 0 10px 15px;
+              letter-spacing: 1.2px;
+              font-size: 14px;
+              line-break: anywhere;
+            }
+            .passwordHiddenButton {
+              font-size: 20px;
+              width: 20px;
+            }
+          }
+
           button {
             width: 100%;
             margin-top: 25px;
@@ -235,6 +269,11 @@ $red: #ff9796;
             font-size: 14px;
             display: flex;
             justify-content: center;
+
+            &.confirmButton {
+              padding: 8px 0;
+              margin: 10px 0 -12px;
+            }
 
             &.ng {
               animation: ngMove 0.35s ease-out;

@@ -13,6 +13,24 @@ import Head from "next/head";
 import AuthMenu from "../components/auth/AuthMenu";
 import LoadingWrap from "../components/auth/LoadingWrap";
 
+if (typeof document !== "undefined") {
+  const touchHandler = (event: any) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  };
+  document.addEventListener("touchstart", touchHandler, {
+    passive: false,
+  });
+  document.addEventListener(
+    "touchmove",
+    (event: any) => {
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+}
+
 const Auth = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);

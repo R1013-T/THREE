@@ -81,7 +81,7 @@ const SignupAfterAuth = () => {
             <div className={styles.inner}>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="email">
-                  以下のメールアドレスでお間違い無いですか。
+                  以下のメールアドレスでサインアップ手続きを進めてください。
                 </label>
                 <p className={styles.centerLabel}>{email}</p>
                 <p className={styles.attention}></p>

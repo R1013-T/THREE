@@ -144,11 +144,11 @@ const Input = (props: Props) => {
   };
 
   useEffect(() => {
-    if (!userName) return
-    props.changePassword(password)
-    props.changeUserName(userName)
-    props.changeAuthState("signupAfterConfirm")
-  },[userName])
+    if (!userName) return;
+    props.changePassword(password);
+    props.changeUserName(userName);
+    props.changeAuthState("signupAfterConfirm");
+  }, [userName]);
 
   useEffect(() => {
     setAttentionFlag("ng");
@@ -172,6 +172,10 @@ const Input = (props: Props) => {
         setInputType("text");
         break;
       default:
+    }
+    const $input = document.getElementById("email");
+    if ($input) {
+      $input.focus();
     }
   }, [inputState]);
 
