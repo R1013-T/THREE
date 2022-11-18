@@ -163,7 +163,17 @@ $red: #ff9796;
       margin-top: 5vh;
       margin-top: 5dvh;
       position: relative;
-      animation: up 0.2s ease-in;
+      
+      
+      &.nextInput {
+        animation: nextInput 0.4s ease-out;
+      }
+      &.backInput {
+        animation: backInput 0.4s ease-out;
+      }
+      &.normal {
+        animation: up 0.2s ease-in;
+      }
 
       .inner {
         position: absolute;
@@ -207,6 +217,10 @@ $red: #ff9796;
             height: 10px;
             font-size: 11px;
             color: $red;
+
+            &.at {
+              color: #f8d216;
+            }
           }
 
           button {
@@ -227,7 +241,7 @@ $red: #ff9796;
             }
 
             &.sent {
-              background: #474B50;
+              background: #474b50;
             }
 
             p {
@@ -248,7 +262,7 @@ $red: #ff9796;
 }
 
 .loadingWrap {
-  position:absolute;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -355,5 +369,42 @@ $red: #ff9796;
   70%,
   90% {
     transform: translateX(-3px);
+  }
+}
+
+@keyframes nextInput {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  31% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes backInput {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  31% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

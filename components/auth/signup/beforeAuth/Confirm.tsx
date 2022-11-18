@@ -11,7 +11,7 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 interface Props {
   changeAuthState: Function;
   changeIsLoading: Function;
-  email: string;
+  email: string | string[];
 }
 
 const Confirm = (props: Props) => {
@@ -93,7 +93,7 @@ const Confirm = (props: Props) => {
         <h1>CREATE YOUR ACCOUNT</h1>
         <div></div>
       </div>
-      <div className={styles.main}>
+      <div className={`${styles.main} ${styles.normal}`}>
         <div className={styles.inner}>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">

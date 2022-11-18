@@ -19,28 +19,41 @@ const Auth = () => {
   const [menuHidden, setMenuHidden] = useState(true);
   const [authState, setAuthState] = useState(router.query.name);
   const [headTitle, setHeadTitle] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string | string[]>("");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
 
   const changeAuthState = (state: string) => {
     setAuthState(state);
   };
-  const changeEmail = (email: string) => {
-    setEmail(email);
-  };
   const changeIsLoading = (state: boolean) => {
     setIsLoading(state);
   };
-
   const changeMenuHidden = (state: boolean) => {
     setMenuHidden(state);
   };
 
+  const changeEmail = (email: string) => {
+    setEmail(email);
+  };
+  const changePassword = (password: string) => {
+    setPassword(password);
+  };
+  const changeUserName = (userName: string) => {
+    setUserName(userName);
+  };
+
   useEffect(() => {
     if (!authState) return;
+    console.log(authState)
     if (authState[0] === "s") {
       setHeadTitle("Sign Up");
     } else {
       setHeadTitle("Log in");
+    }
+
+    if (router.query.email) {
+      setEmail(router.query.email);
     }
   }, [authState]);
 
@@ -83,8 +96,25 @@ const Auth = () => {
           ""
         )}
 
-        {authState === "signupAfterInput" ? <SignupAfterInput /> : ""}
-        {authState === "signupAfterConfirm" ? <SignupAfterConfirm /> : ""}
+        {authState === "signupAfterInput" ? (
+          <SignupAfterInput
+            changeAuthState={changeAuthState}
+            changePassword={changePassword}
+            changeUserName={changeUserName}
+          />
+        ) : (
+          ""
+        )}
+        {authState === "signupAfterConfirm" ? (
+          <SignupAfterConfirm
+            changeAuthState={changeAuthState}
+            email={email}
+            password={password}
+            userName={userName}
+          />
+        ) : (
+          ""
+        )}
 
         {authState === "loginInput" ? <LoginInput /> : ""}
 

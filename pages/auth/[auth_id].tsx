@@ -38,6 +38,13 @@ const SignupAfterAuth = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const query = {
+      email: email,
+      name: "signupAfterInput"
+    }
+
+    router.push({ pathname: "/auth", query: query }, "/auth");
   };
 
   return (

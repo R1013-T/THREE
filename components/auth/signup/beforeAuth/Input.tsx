@@ -74,12 +74,13 @@ const Input = (props: Props) => {
       <div className={styles.main}>
         <div className={styles.inner}>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">メールアドレス</label>
             <input
               type="text"
               id="email"
               onBlur={handleBlur}
               onChange={handleChange}
+              placeholder="Email Address"
             />
             <p className={styles.attention}>{attentionDesc}</p>
             <button type="submit" className={ngMoveFlag ? styles.ng : ""}>

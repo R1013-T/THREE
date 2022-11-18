@@ -6,7 +6,7 @@ import { IoChevronBackSharp } from "react-icons/io5";
 interface Props {
   changeAuthState: Function;
   changeIsLoading: Function;
-  email: string;
+  email: string | string[];
 }
 
 const Complete = (props: Props) => {
@@ -17,7 +17,7 @@ const Complete = (props: Props) => {
         <h1>CREATE YOUR ACCOUNT</h1>
         <div></div>
       </div>
-      <div className={styles.main}>
+      <div className={`${styles.main} ${styles.normal}`}>
         <div className={styles.inner}>
           <form>
             <label htmlFor="email">
