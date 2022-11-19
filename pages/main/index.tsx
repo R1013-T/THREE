@@ -6,7 +6,7 @@ const index = () => {
 
   const handleLogout = () => {
     auth.signOut();
-    router.push("./");
+    router.push("/");
   };
 
   return (
