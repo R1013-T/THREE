@@ -72,8 +72,16 @@ const Confirm = (props: Props) => {
         router.push("/main");
       })
       .catch((e) => {
-        console.log(e);
-        alert("エラーが発生しました。");
+        let alertMsg = "";
+        console.log(e.code)
+        switch (e.code) {
+          case "auth/email-already-in-use":
+            alertMsg = "提供された電子メールは、既存のユーザーによってすでに使用されています。"
+            break;
+          default:
+            alertMsg = "エラーが発生しました。最初からやり直してください。"
+        }
+        alert(alertMsg);
         router.push("/");
       });
   };
