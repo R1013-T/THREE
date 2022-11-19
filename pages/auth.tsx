@@ -126,6 +126,7 @@ const Auth = () => {
         {authState === "signupAfterConfirm" ? (
           <SignupAfterConfirm
             changeAuthState={changeAuthState}
+            changeIsLoading={changeIsLoading}
             email={email}
             password={password}
             userName={userName}

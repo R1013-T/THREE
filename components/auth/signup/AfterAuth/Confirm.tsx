@@ -1,33 +1,81 @@
 import styles from "../../../../styles/auth.module.scss";
 
-import { useState } from "react";
-import Head from "next/head";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { IoChevronBackSharp } from "react-icons/io5";
+import { auth, db } from "../../../../lib/firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
 
 interface Props {
   changeAuthState: Function;
-  email: string | string[];
+  changeIsLoading: Function;
+  email: any;
   password: string;
   userName: string;
 }
 
 const Confirm = (props: Props) => {
+  const router = useRouter();
+
   const [passwordInputType, setPasswordInputType] = useState("password");
 
   const handleBack = () => {
-    props.changeAuthState("signupAfterInput")
-    scrollTo(0,0)
+    props.changeAuthState("signupAfterInput");
+    scrollTo(0, 0);
   };
 
   const scrollTop = () => {
     scrollTo(0, 0);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     scrollTo(0, 0);
+
+    props.changeIsLoading(true);
+    await inputFirestore();
+    await signUpFirebase();
+  };
+
+  const inputFirestore = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        email: props.email,
+        password: props.password,
+      });
+      return docRef.id;
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      alert("エラーが発生しました。最初からやり直してください。");
+      router.push("/");
+    }
+  };
+
+  const signUpFirebase = async () => {
+    await createUserWithEmailAndPassword(auth, props.email, props.password)
+      .then(() => {
+        const user = auth.currentUser;
+        if (!user) return;
+        updateProfile(user, {
+          displayName: props.userName,
+        }).catch((e) => {
+          console.log(e);
+          alert("エラーが発生しました。");
+          router.push("/");
+        });
+      })
+      .then(() => {
+        props.changeIsLoading(false);
+        router.push("/main");
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("エラーが発生しました。");
+        router.push("/");
+      });
   };
 
   const handleHiddenButton = () => {
