@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>THREE</title>
-        <meta name="description" content="" />
+        <meta name="description" content="2023 TECH.C. School Anniversary - WebAR脱出ゲーム" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="THREE" />
         <meta
