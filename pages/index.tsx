@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import AuthMenu from "../components/auth/AuthMenu";
+import Head from "next/head";
 
 if (typeof document !== "undefined") {
   const touchHandler = (event: any) => {
@@ -63,6 +64,13 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
+      <Head>
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="THREE" />
+      <meta property="og:description" content="2023 TECH.C. WebAR脱出ゲーム" />
+      <meta property="og:site_name" content="THREE" />
+      <meta property="og:image" content="THREE_logo.svg" />
+      </Head>
       {menuHidden ? "" : <AuthMenu changeMenuHidden={changeMenuHidden} />}
       <AuthHeader isLoading={isLoading} changeMenuHidden={changeMenuHidden} />
       <main className={styles.main}>
