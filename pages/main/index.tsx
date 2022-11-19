@@ -5,8 +5,8 @@ const index = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    auth.signOut();
     router.push("/");
+    auth.signOut();
   };
 
   return (
