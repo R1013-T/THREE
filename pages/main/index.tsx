@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { auth } from "../../lib/firebase";
 
-const index = () => {
+const MainIndex = () => {
   const router = useRouter();
 
   const handleLogout = () => {
@@ -22,4 +22,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default MainIndex;
