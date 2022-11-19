@@ -3,6 +3,7 @@ import styles from "../../styles/auth.module.scss";
 import Head from "next/head";
 
 import { RiMenu4Fill } from "react-icons/ri";
+import { useRouter } from "next/router";
 
 interface Props {
   isLoading: boolean;
@@ -10,9 +11,14 @@ interface Props {
 }
 
 const AuthHeader = (props: Props) => {
+  const router = useRouter()
 
   const handelMenu = () => {
     props.changeMenuHidden(false)
+  }
+
+  const handleClickLogo = () => {
+    router.push("/")
   }
 
   return (
@@ -21,7 +27,7 @@ const AuthHeader = (props: Props) => {
         <div onClick={handelMenu}>
           <RiMenu4Fill />
         </div>
-        <p>THREE</p>
+        <p onClick={handleClickLogo}>THREE</p>
         <div></div>
       </div>
       <div className={styles.center}>

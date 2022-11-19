@@ -1,9 +1,12 @@
+import { useRouter } from "next/router";
 import { auth } from "../../lib/firebase";
 
 const index = () => {
+  const router = useRouter();
 
   const handleLogout = () => {
-    auth.signOut()
+    auth.signOut();
+    router.push("./");
   };
 
   return (

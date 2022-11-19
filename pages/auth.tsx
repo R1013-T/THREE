@@ -63,7 +63,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (!authState) return;
-    console.log(authState)
+    console.log(authState);
     if (authState[0] === "s") {
       setHeadTitle("Sign Up");
     } else {
@@ -135,7 +135,11 @@ const Auth = () => {
           ""
         )}
 
-        {authState === "loginInput" ? <LoginInput /> : ""}
+        {authState === "loginInput" ? (
+          <LoginInput changeIsLoading={changeIsLoading} />
+        ) : (
+          ""
+        )}
 
         {isLoading ? <LoadingWrap /> : ""}
       </div>
